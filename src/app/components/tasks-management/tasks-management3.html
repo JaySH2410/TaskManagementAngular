@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="card">
+        <h2 class="title">Tasks Management</h2>
+    </div>
+    <div class="card">
+        <!-- <div class="right"> -->
+        <input type="text" placeholder="Search tasks..." class="text-input" />
+        <!-- (input)="search($event)" -->
+        <select class="select-input">
+            <!-- (change)="filterStatus($any($event.target).value)" -->
+            <option value="All">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="InProgress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+        <select class="select-input">
+            <!-- (change)="filterCategory($any($event.target).value)" -->
+            <option value="">All Categories</option>
+            <!-- <option *ngFor="let cat of categories()" [value]="cat.id">{{ cat.name }}</option> -->
+        </select>
+        <!-- <div class="left"> -->
+        <button class="button">Add New Task</button>
+        <!-- (click)="openNewTaskForm()"  -->
+        <!-- </div> -->
+    </div>
+
+    <!-- <div class="card">
+        <div class="container-row">
+            <label class="header-label">
+                Title
+            </label>
+            <label class="header-label">
+                Description
+            </label>
+            <label class="header-label">
+                Category
+            </label>
+            <label class="header-label">
+                Status
+            </label>
+            <label class="header-label">
+                Actions
+            </label>
+        </div>
+        <hr class="division" />
+        <div *ngFor="let task of tasks" class="container-row">
+            <label class="data-label">
+                {{ task.title }}
+            </label>
+            <label class="data-label">
+                {{ task.description }}
+            </label>
+            <label class="data-label">
+                {{ task.categoryName }}
+            </label>
+            <label class="data-label">
+                {{ task.status }}
+            </label>
+
+
+            <div class="left">
+                <button class="button">Edit</button>
+                <button class="button">Delete</button>
+            </div>
+
+        </div>
+    </div> -->
+    <div class="card">
+        <div class="grid-table header-label">
+            <div class="grid-table header">
+                <div (click)="sortBy('title')" class="sortable">
+                    Title <span>{{ getSortIcon('title') }}</span>
+                </div>
+                <div (click)="sortBy('description')" class="sortable">
+                    Description <span>{{ getSortIcon('description') }}</span>
+                </div>
+                <div (click)="sortBy('categoryName')" class="sortable">
+                    Category <span>{{ getSortIcon('categoryName') }}</span>
+                </div>
+                <div (click)="sortBy('status')" class="sortable">
+                    Status <span>{{ getSortIcon('status') }}</span>
+                </div>
+                <div>Actions</div>
+            </div>
+        </div>
+
+        <hr class="division" />
+
+        <div *ngFor="let task of tasks" class="grid-table row">
+            <div>{{ task.title }}</div>
+            <div>{{ task.description }}</div>
+            <div>{{ task.status }}</div>
+            <div>{{ task.categoryName }}</div>
+            <div class="actions">
+                <button class="button">Edit</button>
+                <button class="button">Delete</button>
+            </div>
+        </div>
+    </div>

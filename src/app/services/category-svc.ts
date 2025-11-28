@@ -21,7 +21,6 @@ export class CategorySvc {
     );
   }
 
-  // POST create category
   createCategory(dto: CreateUpdateCategoryDto): Observable<Category> {
     return this.http.post<ApiResponse<Category>>(this.baseUrl, dto).pipe(
       map(res => res.object)

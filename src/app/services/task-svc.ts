@@ -76,7 +76,6 @@ export class TaskSvc {
     );
   }
 
-  // DELETE TASK
   deleteTask(id: number): Observable<void> {
     return this.http.delete<ApiResponse<void>>(`${this.baseUrl}/${id}`).pipe(
       map(res => {
@@ -93,32 +92,3 @@ export class TaskSvc {
   }
 
 }
-// return this.http.get<ApiResponse<Task[]>>(this.baseUrl).pipe(map(r => r.Object as Task[]));
-// return res.pipe(map(r => r.Object as Task[]));
-// return this.http.get<Task[]>(this.baseUrl);
-
-// // GET task by id (optional if needed)
-// getTask(id: number): Observable<Task> {
-//   return this.http.get<ApiResponse<Task>>(`${this.baseUrl}/${id}`).pipe(
-//     map(res => res.object)
-//   );
-// }
-
-// // POST create task
-// createTask(dto: CreateUpdateTask): Observable<Task> {
-//   return this.http.post<ApiResponse<Task>>(this.baseUrl, dto).pipe(
-//     map(res => res.object)
-//   );
-// }
-
-// // PUT update task
-// updateTask(id: string, dto: CreateUpdateTask): Observable<Task> {
-//   console.log("Updating task:", dto, id);
-
-//   return this.http.put<Task>(`${this.baseUrl}/${id}`, dto);
-// }
-
-// // DELETE task
-// deleteTask(id: number): Observable<void> {
-//   return this.http.delete<void>(`${this.baseUrl}/${id}`);
-// }

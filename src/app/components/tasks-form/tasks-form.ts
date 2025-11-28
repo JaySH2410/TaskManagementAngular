@@ -23,10 +23,11 @@ export class TasksForm implements OnInit {
   taskSvc = inject(TaskSvc);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+
   categories = this.taskStore.categories;
   statuses: TaskStatus[] = ['Pending', 'InProgress', 'Done'];
 
-  constructor(private toast: ToastSvc) {
+  constructor() {
     this.taskStore.loadCategories();
   }
 
@@ -55,8 +56,7 @@ export class TasksForm implements OnInit {
 
 
   getCategoryName(categoryId: number | string | null) {
-    const list = this.categories();  // signal call to retrieve value
-
+    const list = this.categories();  
     const category = list.find(c => c.id === Number(categoryId));
     return category ? category.name : '';
   }
@@ -64,25 +64,17 @@ export class TasksForm implements OnInit {
 
   onSave() {
     if (this.taskForm.invalid) return;
-
     const value: any = {
       ...this.taskForm.value
-      // categoryId: Number(this.taskForm.value.categoryId),
-      // createdAt: new Date().toISOString(),  // add required field
-      // categoryName: this.getCategoryName(this.taskForm.value.categoryId!) // derive name
     };
-
     if (this.isEdit) {
       console.log("Editing task:", value);
       if (this.id) {
         this.taskStore.updateTask(this.id, value);
-        // this.toast.show('Task updated successfully!', 'success');
       }
     } else {
       this.taskStore.addTask(value);
-      // this.toast.show('Task added successfully!', 'success');
     }
-
     this.taskForm.reset();
     this.taskStore.loadTasks();
     this.router.navigate(['/tasks']);
@@ -94,36 +86,3 @@ export class TasksForm implements OnInit {
   }
 }
 
-
-// import { Component } from '@angular/core';
-// import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-// import { CommonModule } from '@angular/common';
-
-// @Component({
-//   selector: 'app-tasks-form',
-//   standalone: true,
-//   imports: [CommonModule, ReactiveFormsModule],
-//   templateUrl: './tasks-form.html',
-//   styleUrl: './tasks-form.css',
-// })
-// export class TasksForm {
-
-//   isEdit: boolean = false;
-
-//   taskForm = new FormGroup({
-//     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
-//     description: new FormControl('', Validators.required),
-//     categoryId: new FormControl('', Validators.required),
-//     status: new FormControl('', Validators.required)
-//   });
-
-//   onSave() {
-//     if (this.taskForm.invalid) return;
-
-//     console.log("Form submitted:", this.taskForm.value);
-//   }
-
-//   onCancel() {
-//     this.taskForm.reset();
-//   }
-// }

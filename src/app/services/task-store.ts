@@ -15,7 +15,6 @@ export class TaskStore {
 
   private tasksSignal = signal<Task[]>([]);
   private categoriesSignal = signal<Category[]>([]);
-
   private statusFilter = signal<'All' | string>('All');
   private categoryFilter = signal<number | null>(null);
   private searchTerm = signal<string>('');
@@ -89,44 +88,6 @@ export class TaskStore {
     });
   }
 
-  // loadTasks() {
-  //   this.taskApi.getTasks().subscribe({
-  //     next: res => {
-  //       this.tasksSignal.set(res);
-  //     },
-  //     error: err => {
-  //       this.toast.show(err || 'Something went wrong while loading tasks', "error");
-  //     }
-  //   });
-  // }
-
-
-  // loadCategories() {
-  //   this.categoryApi.getCategories().subscribe(categories => {
-  //     this.categoriesSignal.set(categories);
-  //     console.log('categories', categories);
-  //   });
-  // }
-
-  // addTask(task: CreateUpdateTask) {
-  //   this.taskApi.createTask(task).subscribe(createdTask => {
-  //     this.tasksSignal.update(tasks => [...tasks, createdTask]);
-  //   });
-  //   // this.tasksSignal.update(tasks => [...tasks, task]);
-  // }
-
-  // updateTask(id: string, task: Task) {
-  //   this.taskApi.updateTask(id, task).subscribe(updatedTask => {
-  //     this.tasksSignal.update(tasks => tasks.map(t => t.id === updatedTask.id ? updatedTask : t));
-  //   });
-  // }
-
-  // removeTask(id: number) {
-  //   this.taskApi.deleteTask(id).subscribe(() => {
-  //     this.tasksSignal.update(tasks => tasks.filter(t => t.id !== id));
-  //   });
-  // }
-
   setSearch(term: string) {
     this.searchTerm.set(term);
   }
@@ -151,71 +112,3 @@ export class TaskStore {
     }
   }
 }
-
-
-// import { Injectable } from '@angular/core';
-// import { signal, computed } from '@angular/core';
-// import { Task, TaskStatus } from '../models/task';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class TaskStore {
-//   private tasksSignal = signal<Task[]>([
-//     { id: 1, title: 'Task 1', description: 'Description 1', status: 'Pending', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 2, title: 'Task 2', description: 'Description 2', status: 'In Progress', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 3, title: 'Task 3', description: 'Description 3', status: 'Done', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 4, title: 'Task 4', description: 'Description 4', status: 'Pending', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 5, title: 'Task 5', description: 'Description 5', status: 'Pending', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 6, title: 'Task 6', description: 'Description 6', status: 'Pending', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 7, title: 'Task 7', description: 'Description 7', status: 'Pending', categoryId: 1, createdAt: '2022-01-01' },
-//     { id: 8, title: 'Task 8', description: 'Description 8', status: 'Pending', categoryId: 1, createdAt: '2022-01-01' },
-//   ]);
-//   private statusFilter = signal<TaskStatus | 'All'>('All');
-//   private categoryFilter = signal<number | null>(null);
-//   private searchTerm = signal<string>('');
-
-
-//   // readonly tasks = computed(() =>
-//   //   this.tasksSignal().filter(t =>
-//   //     (this.statusFilter() === 'All' || t.status === this.statusFilter()) &&
-//   //     (this.categoryFilter() === null || t.categoryId === this.categoryFilter())
-//   //   )
-//   // );
-//   readonly tasks = computed(() =>
-//     this.tasksSignal().filter(t =>
-//       (this.statusFilter() === 'All' || t.status === this.statusFilter()) &&
-//       (this.categoryFilter() === null || t.categoryId === this.categoryFilter())
-//     )
-//   );
-
-//   setSearch(term: string) {
-//     this.searchTerm.set(term);
-//   }
-
-//   setTasks(tasks: Task[]) {
-//     this.tasksSignal.set(tasks);
-//   }
-
-//   filterByStatus(status: TaskStatus | 'All') {
-//     this.statusFilter.set(status);
-//   }
-
-//   filterByCategory(categoryId: number | null) {
-//     this.categoryFilter.set(categoryId);
-//   }
-
-//   removeTask(id: number) {
-//     this.tasksSignal.update(tasks => tasks.filter(t => t.id !== id));
-//   }
-
-//   addTask(task: Task) {
-//     this.tasksSignal.update(tasks => [...tasks, task]);
-//   }
-
-//   updateTask(task: Task) {
-//     this.tasksSignal.update(tasks =>
-//       tasks.map(t => (t.id === task.id ? task : t))
-//     );
-//   }
-// }

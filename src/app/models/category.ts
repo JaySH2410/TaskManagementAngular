@@ -3,7 +3,6 @@ export interface Category {
   name: string;
 }
 
-// DTO (if you later allow add category on UI)
 export interface CreateUpdateCategoryDto {
   name: string;
 }

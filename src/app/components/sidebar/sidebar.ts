@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthSvc } from '../../services/auth-svc';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,5 +10,5 @@ import { AuthSvc } from '../../services/auth-svc';
   styleUrl: './sidebar.css'
 })
 export class Sidebar {
-  constructor(public auth: AuthSvc) {}
+  constructor() {}
 }
