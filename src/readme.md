@@ -1,6 +1,6 @@
 # 🖥️ Task Management Frontend – Angular 20 (Standalone + Signals)
 
-This is the frontend UI for the **Task Management System**, built using **Angular 20** with **Standalone Components**, **Signals state management**, **HttpClient API integration**, and **Tailwind CSS** for styling. The application interacts with the ASP.NET Core Web API backend to perform task and category management operations.
+This is the frontend UI for the **Task Management System**, built using **Angular 20** with **Standalone Components**, **Signals state management**, **HttpClient API integration**. The application interacts with the ASP.NET Core Web API backend to perform task and category management operations.
 
 ---
 
