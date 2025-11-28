@@ -1,59 +1,68 @@
-# TaskManagement
+# 🖥️ Task Management Frontend – Angular 20 (Standalone + Signals)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+This is the frontend UI for the **Task Management System**, built using **Angular 20** with **Standalone Components**, **Signals state management**, **HttpClient API integration**. The application interacts with the ASP.NET Core Web API backend to perform task and category management operations.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
-```bash
-ng serve
+- Angular 20 standalone component architecture
+- Signals for reactive state management (no NgRx needed)
+- Task & Category CRUD operations
+- Service-based API layer
+- Form handling using Angular Reactive Forms
+- Toast notifications & validation handling
+- Environment-based API URL configuration
+
+---
+
+## 📁 Project Structure
+
+src/\
+│── app/\
+│ │── components/ → UI components (Task, Category, List, Form)\
+│ │── guards/ → Route guards (if used)\
+│ │── models/ → TypeScript model interfaces\
+│ │── pipes/ → Custom pipes (if any)\
+│ │── services/ → API services using HttpClient & Signals state\
+│ │── app.routes.ts → Application routing configuration\
+│ │── app.ts → Root standalone application component\
+│ │── app.config.ts → bootstrapApplication + providers setup\
+│── env/
+│── assets/\
+│── index.html\
+│── main.ts\
+│── styles.css
+
+
+---
+
+## 🧠 Tech Stack
+
+| Technology / Library | Purpose |
+|----------------------|---------|
+| **Angular 20** | Framework |
+| **Signals** | Local reactive state management |
+| **Standalone Components** | Modern Angular app structure |
+| **HttpClient** | API communication |
+| **TypeScript** | Language |
+| **RxJS** | Async operations |
+
+---
+
+## 🌐 Backend API Integration
+
+The app communicates with the ASP.NET Core API at:
+```ts
+const API_BASE_URL = 'https://localhost:5001/api';
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Future Enhancements
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Add Login Screen and JWT Authentication
+- Auth Guards to routes
+- Add Page for List of Categories and updating and deleting categories
+- Pagination for tasks
+- Use shared components
