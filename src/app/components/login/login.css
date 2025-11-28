@@ -1,0 +1,51 @@
+.container {
+  padding: 20px;
+  margin: 0px 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #333;
+}
+
+.card {
+  background-color: hwb(216 98% 0%);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px 20px;
+  align-items: center;
+  width: 40%;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: start;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.button {
+  background-color: #000;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

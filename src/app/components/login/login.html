@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card">
+    <h2 class="title">Login</h2>
+  </div>
+
+  <div class="card">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+      <div class="form-grid">
+
+        <label class="form-label">Username</label>
+        <input type="text" formControlName="userName" class="form-control" />
+
+        <label class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" />
+
+        <div class="form-actions">
+          <button type="submit" class="button" [disabled]="loginForm.invalid">Login</button>
+          <button type="button" class="button" (click)="toRegister()">New User?   Register</button>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+</div>

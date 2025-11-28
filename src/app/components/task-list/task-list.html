@@ -1,0 +1,167 @@
+
+
+<!-- 3 -->
+<!-- <ui-header>
+    <div class="flex justify-between items-center w-full">
+        <span>Task Management</span>
+
+        <ui-button label="+ Add Task" color="primary" (click)="openCreate()"></ui-button>
+
+        <input type="text" placeholder="Search tasks..." (input)="search($event)"
+            class="border px-3 py-2 rounded-lg w-64" />
+    </div>
+</ui-header>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+        <h3 class="font-bold text-lg mb-3">Pending</h3>
+
+        <ng-container *ngFor="let task of pending()">
+            <ui-card>
+                <h4 class="font-semibold">{{task.title}}</h4>
+                <p class="text-sm text-gray-600">{{task.description}}</p>
+
+                <div class="flex justify-end gap-2 mt-3">
+                    <ui-button label="Edit" color="warning" (click)="openEdit(task)"></ui-button>
+                    <ui-button label="Delete" color="danger" (click)="confirmDelete(task.id)"></ui-button>
+                </div>
+            </ui-card>
+        </ng-container>
+    </div>
+
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+        <h3 class="font-bold text-lg mb-3">In Progress</h3>
+        <ng-container *ngFor="let task of inProgress()">
+            <ui-card>
+                <h4 class="font-semibold">{{task.title}}</h4>
+                <p class="text-sm text-gray-600">{{task.description}}</p>
+
+                <div class="flex justify-end gap-2 mt-3">
+                    <ui-button label="Edit" color="warning" (click)="openEdit(task)"></ui-button>
+                    <ui-button label="Delete" color="danger" (click)="confirmDelete(task.id)"></ui-button>
+                </div>
+            </ui-card>
+        </ng-container>
+    </div>
+
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+        <h3 class="font-bold text-lg mb-3">Done</h3>
+        <ng-container *ngFor="let task of done()">
+            <ui-card>
+                <h4 class="font-semibold">{{task.title}}</h4>
+                <p class="text-sm text-gray-600">{{task.description}}</p>
+
+                <div class="flex justify-end gap-2 mt-3">
+                    <ui-button label="Edit" color="warning" (click)="openEdit(task)"></ui-button>
+                    <ui-button label="Delete" color="danger" (click)="confirmDelete(task.id)"></ui-button>
+                </div>
+            </ui-card>
+        </ng-container>
+    </div>
+
+</div> -->
+
+<!-- 2 -->
+<!-- 
+<div class="header">
+    <h1>Task Management</h1>
+    <button class="add-btn" (click)="openCreate()">+ Add Task</button>
+    <input type="text" placeholder="Search tasks..." (input)="search($event)" class="search-input" />
+
+    <select (change)="filterStatus($any($event.target).value)">
+        <option value="All">All Status</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Done">Done</option>
+    </select>
+
+    <select (change)="filterCategory($any($event.target).value)">
+        <option value="">All Categories</option>
+        <option *ngFor="let cat of categories()" [value]="cat.id">{{cat.name}}</option>
+    </select>
+
+</div>
+
+<div class="board">
+    <div class="column">
+        <h3>Pending</h3>
+        <div class="task-list">
+            <ng-container *ngFor="let task of pending()">
+                <div class="task-card">
+                    <h4>{{task.title}}</h4>
+                    <p>{{task.description}}</p>
+                    <button (click)="openEdit(task)">Edit</button>
+                    <button (click)="confirmDelete(task.id)">Delete</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="column">
+        <h3>In Progress</h3>
+        <div class="task-list">
+            <ng-container *ngFor="let task of inProgress()">
+                <div class="task-card">
+                    <h4>{{task.title}}</h4>
+                    <p>{{task.description}}</p>
+                    <button (click)="openEdit(task)">Edit</button>
+                    <button (click)="confirmDelete(task.id)">Delete</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="column">
+        <h3>Done</h3>
+        <div class="task-list">
+            <ng-container *ngFor="let task of done()">
+                <div class="task-card">
+                    <h4>{{task.title}}</h4>
+                    <p>{{task.description}}</p>
+                    <button (click)="openEdit(task)">Edit</button>
+                    <button (click)="confirmDelete(task.id)">Delete</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-overlay" *ngIf="isFormOpen()">
+    <div class="modal-container">
+        <app-task-form [task]="selectedTask()" (close)="closeForm()">
+        </app-task-form>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="isDeleteOpen()">
+    <div class="confirm-box">
+        <p>Are you sure you want to delete?</p>
+        <button (click)="deleteTask()">Yes</button>
+        <button (click)="closeDelete()">No</button>
+    </div>
+</div>
+ -->
+
+<!-- 1 -->
+
+<!-- <h2>Tasks</h2>
+
+    <label>Status: </label>
+    <select (change)="filterStatus($any($event.target).value)">
+      <option value="All">All</option>
+      <option value="Pending">Pending</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Done">Done</option>
+    </select>
+
+    <button (click)="navigateToAdd()">+ Add Task</button>
+
+    <ul>
+      <li *ngFor="let task of store.tasks()">
+        {{task.title}} - {{task.status}} 
+        <button (click)="edit(task.id)">Edit</button>
+        <button (click)="delete(task.id)">Delete</button>
+      </li>
+    </ul> -->
