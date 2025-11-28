@@ -12,7 +12,6 @@ This is the frontend UI for the **Task Management System**, built using **Angula
 - Service-based API layer
 - Form handling using Angular Reactive Forms
 - Toast notifications & validation handling
-- Tailwind CSS UI styling
 - Environment-based API URL configuration
 
 ---
@@ -56,6 +55,7 @@ src/\
 The app communicates with the ASP.NET Core API at:
 ```ts
 const API_BASE_URL = 'https://localhost:5001/api';
+```
 
 ---
 
